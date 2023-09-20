@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_boilerplate/shared/widgets/appbar.dart';
+import 'package:go_router/go_router.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -7,16 +8,19 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          AppLocalizations.of(context)!.appTitle,
-          style: const TextStyle(
-            color: Colors.white,
+      appBar: const Appbar(),
+      body: Column(
+        children: [
+          TextButton(
+            onPressed: () => context.push('/page1'),
+            child: const Text('Push page 1'),
           ),
-        ),
-        backgroundColor: const Color.fromRGBO(115, 147, 179, 1),
+          TextButton(
+            onPressed: () => context.go('/page2'),
+            child: const Text('Go to page 2'),
+          ),
+        ],
       ),
-      body: const Placeholder(),
     );
   }
 }

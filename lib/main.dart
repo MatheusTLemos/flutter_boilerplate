@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/pages/home/home.dart';
+import 'package:flutter_boilerplate/app/router.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Boilerplate',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         Locale('en', ''),
         Locale('pt', ''),
       ],
-      home: const Home(),
+      routerConfig: appRouter,
     );
   }
 }
